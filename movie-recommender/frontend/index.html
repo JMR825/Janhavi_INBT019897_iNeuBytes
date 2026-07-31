@@ -7,18 +7,50 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Movie Recommender</h1>
-    <p>Enter a movie title to get similar recommendations.</p>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
 
-    <div class="search-box">
-      <input type="text" id="movieInput" placeholder="e.g. Inception" />
-      <button id="recommendBtn">Recommend</button>
-    </div>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="badge">AI Movie Discovery</div>
+      <h1>Find movies you'll actually like</h1>
+      <p class="subtitle">
+        Type a movie name and get similar recommendations based on story, genre, cast, and keywords.
+      </p>
 
-    <div id="status"></div>
-    <div id="results" class="results"></div>
-  </div>
+      <div class="suggestions">
+        <button class="chip" data-title="Inception">Inception</button>
+        <button class="chip" data-title="Finding Nemo">Finding Nemo</button>
+        <button class="chip" data-title="Interstellar">Interstellar</button>
+        <button class="chip" data-title="The Matrix">The Matrix</button>
+      </div>
+
+      <div class="search-panel">
+        <label for="movieInput" class="label">Movie title</label>
+        <div class="search-row">
+          <input
+            type="text"
+            id="movieInput"
+            placeholder="Try: Finding Nemo"
+            autocomplete="off"
+          />
+          <button id="recommendBtn">Recommend</button>
+        </div>
+        <p class="hint">Example: Inception, Finding Nemo, The Dark Knight</p>
+      </div>
+
+      <div id="status" class="status"></div>
+    </section>
+
+    <section>
+      <div id="results" class="results empty-state">
+        <div class="empty-card">
+          <h2>Recommendations will appear here</h2>
+          <p>Search for a movie above to see similar titles with short explanations.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>

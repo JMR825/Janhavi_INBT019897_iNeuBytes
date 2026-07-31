@@ -14,7 +14,8 @@ df = pd.read_csv(DATA_PATH, encoding="utf-8-sig")
 
 keep_cols = [
     "tmdb_id", "title", "overview", "genres",
-    "keywords", "cast_names", "directors", "release_year", "vote_average"
+    "keywords", "cast_names", "directors",
+    "release_year", "vote_average", "poster_url"
 ]
 
 for col in keep_cols:
@@ -35,8 +36,7 @@ def clean_text(text):
 for col in ["title", "overview", "genres", "keywords", "cast_names", "directors"]:
     df[col] = df[col].apply(clean_text)
 
-df = df[df["title"].str.len() > 0]
-df = df.drop_duplicates(subset=["title"]).reset_index(drop=True)
+df = df[df["title"].str.len() > 0].drop_duplicates(subset=["title"]).reset_index(drop=True)
 
 df["combined"] = (
     df["title"] + " " +
@@ -57,7 +57,7 @@ joblib.dump(vectorizer, os.path.join(ARTIFACT_DIR, "tfidf_vectorizer.pkl"))
 joblib.dump(nn_model, os.path.join(ARTIFACT_DIR, "nn_model.pkl"))
 joblib.dump(tfidf_matrix, os.path.join(ARTIFACT_DIR, "tfidf_matrix.pkl"))
 joblib.dump(
-    df[["tmdb_id", "title", "overview", "genres", "keywords", "cast_names", "directors", "release_year", "vote_average"]],
+    df[["tmdb_id", "title", "overview", "genres", "keywords", "cast_names", "directors", "release_year", "vote_average", "poster_url"]],
     os.path.join(ARTIFACT_DIR, "movies_data.pkl")
 )
 

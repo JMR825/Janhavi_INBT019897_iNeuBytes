@@ -1,6 +1,5 @@
 import os
 import joblib
-import pandas as pd
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
@@ -47,7 +46,8 @@ def recommend():
             "title": row["title"],
             "genre": row.get("genres", ""),
             "description": desc[:180] + ("..." if len(desc) > 180 else ""),
-            "score": round(float(1 - dist), 4)
+            "score": round(float(1 - dist), 4),
+            "poster_url": row.get("poster_url", "")
         })
 
     return jsonify({
