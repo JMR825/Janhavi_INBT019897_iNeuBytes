@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARTIFACT_DIR = os.path.join(BASE_DIR, "model_artifacts")
 
 app = Flask(__name__)
-CORS(app)
+CORS(app,origins=["https://movierecommendation-phi-blush.vercel.app/"])
 
 vectorizer = joblib.load(os.path.join(ARTIFACT_DIR, "tfidf_vectorizer.pkl"))
 nn_model = joblib.load(os.path.join(ARTIFACT_DIR, "nn_model.pkl"))
