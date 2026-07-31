@@ -1,18 +1,7 @@
 const API_BASE = "https://movie-recommendation-z9mf.onrender.com";
 
 const input = document.getElementById("movieInput");
-const btn = document.getElementById("recommendBtn").addEventListener("click", async () => {
-  const input = document.getElementById("userInput").value;
-
-  const res = await fetch("https://movie-recommendation-z9mf.onrender.com/recommend", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ input })
-  });
-
-  const data = await res.json();
-  console.log(data);
-});
+const btn = document.getElementById("recommendBtn");
 const statusEl = document.getElementById("status");
 const resultsEl = document.getElementById("results");
 const chips = document.querySelectorAll(".chip");
@@ -25,6 +14,7 @@ function sentenceCase(text) {
     .replace(/\s+/g, " ")
     .replace(/(^\w|\.\s+\w)/g, (m) => m.toUpperCase());
 }
+
 function setStatus(message, type = "warning") {
   statusEl.textContent = message;
   statusEl.style.color =
@@ -63,8 +53,7 @@ function renderResults(data) {
           <span class="tag">${movie.genre || "Unknown genre"}</span>
           <span class="tag">Match ${Math.round(movie.score * 100)}%</span>
         </div>
-        <h3>${sentenceCase(movie.title)}</h3>
-<p class="description">${sentenceCase(movie.description || "No description available.")}</p>
+        <p class="description">${sentenceCase(movie.description || "No description available.")}</p>
         <div class="score">Similarity score: ${movie.score}</div>
       </div>
     `;
@@ -129,6 +118,7 @@ async function getRecommendations() {
 }
 
 btn.addEventListener("click", getRecommendations);
+
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") getRecommendations();
 });
