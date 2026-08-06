@@ -1,5 +1,4 @@
 ﻿# Janhavi_INBT019897_iNeuBytes
-# AI/ML Internship Projects
 
 ## CIFAR-10 Computer Vision, IMDb Sentiment Analysis, and Movie Recommendation
 
