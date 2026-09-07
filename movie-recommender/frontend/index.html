@@ -1,57 +1,118 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Recommender</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="bg-glow bg-glow-1"></div>
-  <div class="bg-glow bg-glow-2"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-  <main class="app-shell">
-    <section class="hero">
-      <div class="badge">AI Movie Discovery</div>
-      <h1>Find movies you'll actually like</h1>
-      <p class="subtitle">
-        Type a movie name and get similar recommendations based on story, genre, cast, and keywords.
-      </p>
+  <body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
 
-      <div class="suggestions">
-        <button class="chip" data-title="Inception">Inception</button>
-        <button class="chip" data-title="Finding Nemo">Finding Nemo</button>
-        <button class="chip" data-title="Interstellar">Interstellar</button>
-        <button class="chip" data-title="The Matrix">The Matrix</button>
-      </div>
+    <main class="app-shell">
 
-      <div class="search-panel">
-        <label for="movieInput" class="label">Movie title</label>
-        <div class="search-row">
-          <input
-            type="text"
-            id="movieInput"
-            placeholder="Try: Finding Nemo"
-            autocomplete="off"
-          />
-          <button id="recommendBtn">Recommend</button>
+      <section class="hero">
+
+        <div class="badge">AI Movie Discovery</div>
+
+        <h1>Find movies you'll actually like</h1>
+
+        <p class="subtitle">
+          Search by movie, genre, or both to discover recommendations based
+          on story, genre, cast, and keywords.
+        </p>
+
+        <div class="suggestions">
+
+          <button class="chip" data-title="Inception">
+            Inception
+          </button>
+
+          <button class="chip" data-title="Finding Nemo">
+            Finding Nemo
+          </button>
+
+          <button class="chip" data-title="Interstellar">
+            Interstellar
+          </button>
+
+          <button class="chip" data-title="The Matrix">
+            The Matrix
+          </button>
+
         </div>
-        <p class="hint">Example: Inception, Finding Nemo, The Dark Knight</p>
-      </div>
 
-      <div id="status" class="status"></div>
-    </section>
+        <div class="search-panel">
 
-    <section>
-      <div id="results" class="results empty-state">
-        <div class="empty-card">
-          <h2>Recommendations will appear here</h2>
-          <p>Search for a movie above to see similar titles with short explanations.</p>
+          <label for="movieInput" class="label">
+            Movie title
+          </label>
+
+          <div class="search-row">
+
+            <input
+              type="text"
+              id="movieInput"
+              placeholder="Finding Nemo"
+              autocomplete="off"
+            />
+
+            <div class="genre-group">
+
+              <label for="genreFilter">
+                Genre
+              </label>
+
+              <select id="genreFilter">
+                <option value="all">
+                  All Genres
+                </option>
+              </select>
+
+            </div>
+
+            <button id="recommendBtn">
+              Recommend
+            </button>
+
+          </div>
+
+          <p class="hint">
+            Enter a movie, choose a genre, or use both.
+          </p>
+
         </div>
-      </div>
-    </section>
-  </main>
 
-  <script src="script.js"></script>
-</body>
+        <div id="status" class="status"></div>
+
+      </section>
+
+
+      <section>
+
+        <div id="results" class="results empty-state">
+
+          <div class="empty-card">
+
+            <h2>Recommendations will appear here</h2>
+
+            <p>
+              Search for a movie, select a genre, or use both to discover
+              movies.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+  </body>
 </html>

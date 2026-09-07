@@ -39,9 +39,9 @@ for col in ["title", "overview", "genres", "keywords", "cast_names", "directors"
 df = df[df["title"].str.len() > 0].drop_duplicates(subset=["title"]).reset_index(drop=True)
 
 df["combined"] = (
+    (df["genres"] + " ") * 3 +
+    (df["keywords"] + " ") * 2 +
     df["title"] + " " +
-    df["genres"] + " " +
-    df["keywords"] + " " +
     df["cast_names"] + " " +
     df["directors"] + " " +
     df["overview"]
